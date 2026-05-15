@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub</title>
+  <link rel="icon" type="image/png" href="github-mark.png">
+  <link rel="shortcut icon" href="github-mark.png">
+  <style>
+    /* Force font rendering weight in WebKit */
+    @font-face {
+      font-family: 'AppFont';
+      src: local('Ubuntu'), local('Noto Sans'), local('DejaVu Sans'), local('Liberation Sans');
+      font-weight: 400;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="screen-login" class="screen active"></div>
+    <div id="screen-main"  class="screen"></div>
+    <div id="screen-repo"  class="screen"></div>
+  </div>
+  <div id="toast-container"></div>
+  <div id="modal-overlay" class="hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+LOGG.txt
+original Github desktop/
+.vscode/
+build/
+dist/
+..gitignore.kate-swp/
+..gitignore.kate-swp
+
