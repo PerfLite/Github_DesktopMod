@@ -1,6 +1,8 @@
-# GitHub Manager
+# GitHub Desktop Mod
 
 Десктопное приложение для управления GitHub репозиториями — аналог GitHub Desktop для Linux.
+
+[![AUR](https://img.shields.io/aur/version/github-desktop-mod)](https://aur.archlinux.org/packages/github-desktop-mod)
 
 Написано на Python + PyWebView (GTK WebKit2). UI на HTML/CSS/JS
 
@@ -23,17 +25,27 @@
 
 ## Установка
 
-### 1. Системные зависимости (Linux)
+### AUR (Arch Linux)
+
+```bash
+yay -S github-desktop-mod
+```
+
+После установки запуск из терминала: `github-desktop-mod` или через меню приложений.
+
+### Вручную (любой дистрибутив)
+
+#### 1. Системные зависимости
 
 ```bash
 # Ubuntu/Debian
 sudo apt install python3-gi python3-gi-cairo gir1.2-webkit2-4.1
 
 # Arch
-sudo pacman -S python-gobject webkit2gtk
+sudo pacman -S python-gobject webkit2gtk-4.1
 ```
 
-### 2. Виртуальное окружение
+#### 2. Виртуальное окружение
 
 ```bash
 python3 -m venv venv --system-site-packages
@@ -41,51 +53,11 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3. Запуск
+#### 3. Запуск
 
 ```bash
-venv/bin/python app.py
+python app.py
 ```
-
-### 4. Сборка standalone бинарника (опционально)
-
-Для запуска без виртуального окружения можно собрать исполняемый файл через PyInstaller:
-
-```bash
-# Установить PyInstaller
-source venv/bin/activate
-pip install pyinstaller
-
-# Собрать бинарник
-pyinstaller --onefile --windowed --add-data "ui:ui" app.py
-
-# Готовый файл: dist/app
-./dist/app
-```
-
-### 5. Установка в систему (опционально)
-
-```bash
-# Скопировать бинарник и иконку
-mkdir -p ~/.local/bin
-cp dist/app ~/.local/bin/github-manager
-cp ui/github-64.png ~/.local/bin/github-icon.png
-
-# Создать desktop entry
-cat > ~/.local/share/applications/github-manager.desktop << EOF
-[Desktop Entry]
-Name=GitHub Manager
-Comment=Manage GitHub repositories
-Exec=$HOME/.local/bin/github-manager
-Icon=$HOME/.local/bin/github-icon.png
-Terminal=false
-Type=Application
-Categories=Development;Network;
-StartupWMClass=GitHub
-EOF
-```
-
-После этого приложение появится в меню приложений.
 
 ## Получение GitHub Personal Access Token
 
@@ -102,10 +74,15 @@ EOF
 ├── app.py              # PyWebView backend + Python API
 ├── github_client.py    # GitHub REST API клиент
 ├── requirements.txt    # Зависимости
+├── PKGBUILD            # AUR-пакет
+├── .SRCINFO            # AUR-метаданные
+├── launcher.sh         # Скрипт запуска (self-locating)
+├── install.sh          # Установка .desktop + ~/.local/bin
 ├── ui/
 │   ├── index.html      # Точка входа
 │   ├── style.css       # Стили (тёмная тема GitHub)
-│   └── app.js          # Frontend логика
+│   ├── app.js          # Frontend логика
+│   └── github-64.png   # Иконка
 └── README.md
 ```
 
