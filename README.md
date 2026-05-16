@@ -74,8 +74,6 @@ python app.py
 ├── app.py              # PyWebView backend + Python API
 ├── github_client.py    # GitHub REST API клиент
 ├── requirements.txt    # Зависимости
-├── PKGBUILD            # AUR-пакет
-├── .SRCINFO            # AUR-метаданные
 ├── launcher.sh         # Скрипт запуска (self-locating)
 ├── install.sh          # Установка .desktop + ~/.local/bin
 ├── ui/

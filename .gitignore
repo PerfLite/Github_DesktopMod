@@ -9,4 +9,6 @@ build/
 dist/
 ..gitignore.kate-swp/
 ..gitignore.kate-swp
+PKGBUILD
+.SRCINFO
 
